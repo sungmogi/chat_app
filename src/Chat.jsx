@@ -49,14 +49,13 @@ export default function Chat() {
     return (
         <>
             <h2>Welcome, {userName}.</h2>
-            <form onSubmit={sendMessage}>
-
-                {messagesToDisplay && 
+            {messagesToDisplay &&
                 <ul>
                     {messagesToDisplay.map((msg, idx) => (
                         msg.user ? <li key={idx}>{msg.user}: {msg.message}</li> : <li key={idx}><b>{msg.message}</b></li>
-                    ))}    
+                    ))}
                 </ul>}
+            <form onSubmit={sendMessage}>
                 <input placeholder='message' onChange={updateMessage} value={message}></input>
                 <button>Send Message</button>
             </form>
